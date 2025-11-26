@@ -39,17 +39,18 @@ fluent(ready).
 % Compute at positions from move actions
 holds(at(X+1),T+1) :- occur(up,T),   holds(at(X),T).
 holds(at(X-1),T+1) :- occur(down,T), holds(at(X),T).
-% Compute at positions from wait actions
+% Compute at positions from wait and serve actions
 % TODO : Overwork with inertia
-holds(at(X),T+1) :- holds(at(X),T), not occur(up,T), not occur(down,T), time(T).
+holds(at(X),T+1) :- holds(at(X),T), occur(wait,T), time(T).
+holds(at(X),T+1) :- holds(at(X),T), occur(serve,T), time(T).
+
 % Compute served
 % QUESTION : Does it make sense / is it good pratice to define causal rules only using fluents and no actions?
-holds(served(X),T) :- holds(at(X),T), holds(serve,T).
+holds(served(X),T) :- holds(at(X),T), occur(serve,T).
 % Compute called
-holds(called(X),T+1) :- holds(called(X),T), not holds(served(X),T).
+holds(called(X),T+1) :- holds(called(X),T), not holds(served(X),T), time(T).
 % Compute ready
 holds(ready,T) :- holds(called(X),T), holds(at(X),T).
 
 % Only allow calling the elevator inside horizon
 :- holds(called(X),T), not time(T).
-
