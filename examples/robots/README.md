@@ -12,9 +12,6 @@
 
 File: `instances/01_simple.lp`
 
-|:------|:-----|
-|width  |   `4`|
-|height |   `4`|
-|robots |   `3`|
-|horizon|   `6`|
-|models |`2848`|
+| width| height| robots| horizon| models|
+|:-----|:------|:------|:-------|:------|
+|   `4`|   `4` |    `3`|     `6`| `2848`|
