@@ -12,17 +12,8 @@
 
 File: `instances/01_simple.lp`
 
-<<<<<<< Updated upstream
 | width| height| robots| horizon| models|
 |:-----|:------|:------|:-------|:------|
 |   `4`|   `4` |    `3`|     `6`| `2848`|
-=======
-|:------|:-----|
-|width  |   `4`|
-|height |   `4`|
-|robots |   `3`|
-|horizon|   `6`|
-|models |`2848`|
 
 ![Visualization of a valid plan for Instance 01](example.svg)
->>>>>>> Stashed changes
