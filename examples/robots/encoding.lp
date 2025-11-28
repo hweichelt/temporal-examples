@@ -60,7 +60,7 @@ holds(reached_goal(R),T+1) :- holds(reached_goal(R),T), time(T+1).
 
 % Vertex Conflict
 
-:- holds(at(R1,(X,Y)),T), holds(at(R2,(X,Y)),T), R1>R2.
+:- holds(at(R1,POS),T), holds(at(R2,POS),T), R1>R2.
 
 % Edge Conflict
 

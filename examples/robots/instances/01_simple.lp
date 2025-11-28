@@ -1,4 +1,4 @@
-#const horizon=7.
+#const horizon=6.
 #const map_size=4.
 
 robot(1).
