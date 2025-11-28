@@ -13,9 +13,6 @@
 
 File: `instances/01_simple.lp`
 
-|:------|:-----|
-|width  |   `5`|
-|height |   `5`|
-|trains |   `2`|
-|horizon|  `16`|
-|models |`6448`|
+| width| height| trains| horizon| models|
+|:-----|:------|:------|:-------|:------|
+|   `5`|   `5` |    `2`|    `16`| `6448`|
