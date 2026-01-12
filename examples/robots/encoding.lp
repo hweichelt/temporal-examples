@@ -1,9 +1,9 @@
 % Robots Temporal Example
-% 
+%
 % fluents : holds(F,T)    (F=fluent, T=timestep)
 % actions : occur(A,T)    (A=action, T=timestep)
 %         : action(A)
-% time    : time(T)       (T=timestep) 
+% time    : time(T)       (T=timestep)
 %         : horizon(T)
 
 % DEFINITIONS
@@ -24,7 +24,10 @@ fluent(reached_goal).
 % ACTION GENERATION
 
 % TODO : Rewrite to exclude cardinality constraint
-{occur(A,R,T): action(A)}=1 :- robot(R), time(T), time(T+1).
+{occur(A,R,T): action(A)} :- robot(R), time(T), time(T+1).
+% Cardinality constraints
+:- time(T), occur(A1,T), occur(A2,T), A1!=A2.
+:- time(T), not occur(_,T).
 
 % TODO : Replace with pre-conditions
 % Eliminate invalid actions
@@ -36,7 +39,7 @@ fluent(reached_goal).
 
 % Initial positions
 
-holds(at(R,(X,Y)),0) :- start(R,(X,Y)). 
+holds(at(R,(X,Y)),0) :- start(R,(X,Y)).
 
 % Compute at positions
 holds(at(R,(X,Y-1)),T+1) :- occur(up,R,T),  holds(at(R,(X,Y)),T).

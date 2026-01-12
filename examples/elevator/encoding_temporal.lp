@@ -1,9 +1,9 @@
 % Elevator Temporal Example
-% 
+%
 % fluents : holds(F,T)    (F=fluent, T=timestep)
 % actions : occur(A,T)    (A=action, T=timestep)
 %         : action(A)
-% time    : time(T)       (T=timestep) 
+% time    : time(T)       (T=timestep)
 %         : horizon(T)
 
 % DEFINITIONS
@@ -26,7 +26,10 @@ fluent(ready).
 % ACTION GENERATION
 
 % Generate actions for each time step
-{occur(A,T): action(A)}=1 :- time(T),time(T+1).
+{occur(A,T): action(A)} :- time(T),time(T+1).
+% Cardinality constraints
+:- time(T), occur(A1,T), occur(A2,T), A1!=A2.
+:- time(T), not occur(_,T).
 
 % Eliminate invalid move actions
 % TODO : Replace these with pre-conditions

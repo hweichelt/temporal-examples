@@ -1,9 +1,9 @@
 % Flatland Temporal Example
-% 
+%
 % fluents : holds(F,T)    (F=fluent, T=timestep)
 % actions : occur(A,T)    (A=action, T=timestep)
 %         : action(A)
-% time    : time(T)       (T=timestep) 
+% time    : time(T)       (T=timestep)
 %         : horizon(T)
 
 #include "./domain.lp".
@@ -25,7 +25,10 @@ fluent(reached_goal).
 % ACTION GENERATION
 
 % TODO : Rewrite to exclude cardinality constraint
-{occur(A,R,T): action(A)}=1 :- train(R), time(T), time(T+1).
+{occur(A,TR,T): action(A)} :- train(TR), time(T), time(T+1).
+% Cardinality constraints
+:- time(T), train(TR), occur(A1,TR,T), occur(A2,TR,T), A1!=A2.
+:- time(T), train(TR), not occur(_,TR,T).
 
 % TODO : Replace with pre-conditions
 % Eliminate invalid actions
@@ -34,7 +37,7 @@ fluent(reached_goal).
 
 % Initial positions
 
-holds(at(R,(X,Y),DIR),0) :- start(R,(X,Y),DIR). 
+holds(at(R,(X,Y),DIR),0) :- start(R,(X,Y),DIR).
 
 % Compute at positions
 
