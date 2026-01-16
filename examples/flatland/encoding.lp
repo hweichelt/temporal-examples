@@ -27,8 +27,8 @@ fluent(reached_goal).
 % TODO : Rewrite to exclude cardinality constraint
 {occur(A,TR,T): action(A)} :- train(TR), time(T), time(T+1).
 % Cardinality constraints
-:- time(T), train(TR), occur(A1,TR,T), occur(A2,TR,T), A1!=A2.
-:- time(T), train(TR), not occur(_,TR,T).
+:- time(T), time(T+1), train(TR), occur(A1,TR,T), occur(A2,TR,T), A1!=A2.
+:- time(T), time(T+1), train(TR), not occur(_,TR,T).
 
 % TODO : Replace with pre-conditions
 % Eliminate invalid actions
