@@ -14,7 +14,10 @@ This is an example of a temporal encoding modeling elevator movements between di
   + Expected Answer:
     + Reasoning why (probably using a constrastive explanation)
     + (option) Why it was the only option
-    + (option) Why it was the lowest cost answer
+      + More elaboration
+      + I coldn't have served all the floors
+      + Contrastive: relaxed goal (serve at least X floors)
+    + (option) <optimmized> Why it was the lowest cost answer
     + (option) Why there is/are similar alternatives
 > "Is there a different solution?"
   + trivial (different answer set)
